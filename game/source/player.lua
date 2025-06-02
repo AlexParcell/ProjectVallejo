@@ -4,8 +4,8 @@ player.position = {
 	["y"] = 0
 }
 
-player.currentFrame = 0
-player.spriteSheet = love.image.newImageData("sprites/character-spritesheet.png")
+player.spriteSheet = love.graphics.newImage("sprites/player/character-spritesheet.png")
+player.animation = love.animation.newAnimation(player.spriteSheet, 0, 0, 8, 1, 0, 64, 64, 0.5)
 
 function player:update(deltaTime)
 
