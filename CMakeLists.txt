@@ -445,3 +445,18 @@ target_link_libraries(megatest ${MEGA_3P})
 add_move_dll(megatest ${MEGA_SDL2} ${MEGA_SDL3})
 add_move_dll(megatest ${MEGA_OPENAL})
 add_move_dll(megatest ${MEGA_LUA51})
+
+# SERAPHINE MOD - game folder in VS
+
+file(GLOB_RECURSE GAME_LUA_FILES CONFIGURE_DEPENDS
+	"${CMAKE_CURRENT_SOURCE_DIR}/game/*.lua"
+)
+
+add_custom_target(GameLuaFiles SOURCES ${GAME_LUA_FILES})
+
+foreach (FILE ${GAME_LUA_FILES})
+	file (RELATIVE_PATH REL_PATH "${CMAKE_CURRENT_SOURCE_DIR}" "${FILE}")
+	string(REPLACE "/" "\\" GROUP_PATH "${REL_PATH}")
+	get_filename_component(GROUP_NAME "${GROUP_PATH}" DIRECTORY)
+	source_group("${GROUP_NAME}" FILES "${FILE}")
+endforeach()
