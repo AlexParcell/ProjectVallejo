@@ -58,6 +58,7 @@ function player:update(deltaTime)
 	for key,inputFunc in pairs(player.inputFunctions) do
 		if (love.keyboard.isDown(key)) then
 			inputFunc(deltaTime)
+			break
 		end
 	end
 
@@ -66,11 +67,13 @@ function player:update(deltaTime)
 		player.animationYOffset = player.animationYOffset + player.idleOffset
 	end
 
+	love.camera.setCameraLocation(player.position.x + 64, player.position.y + 32)
+
 	love.animation.update(player.animation, deltaTime)
 	love.animation.setOffset(player.animation, 0, player.animationYOffset)
 end
 
 function player:draw()
 	local quad, texture = love.animation.getDrawData(player.animation)
-	love.graphics.draw(texture, quad, player.position.x, player.position.y, 0, 2, 2)
+	love.graphics.draw(texture, quad, player.position.x, player.position.y, 0, 1, 1)
 end
