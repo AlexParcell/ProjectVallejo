@@ -1,10 +1,9 @@
-local function draw()
+return function()
 	love.camera.setCameraRenderingActive(true)
-	tilemap:draw()
-	player:draw()
+	if g_activeLevel then
+		g_activeLevel:draw()
+	end
 	love.camera.setCameraRenderingActive(false)
 	
 	-- draw UI and stuff
 end
-
-return draw

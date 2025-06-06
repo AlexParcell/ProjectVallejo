@@ -1,6 +1,7 @@
+require("source.globals")
+
 function love.load()
-	require("source.startup.startup")
-	startup()
+	require("source.startup.startup")()
 end
 
 function love.update(dt)
