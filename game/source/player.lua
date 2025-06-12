@@ -6,7 +6,7 @@ return function()
 		["y"] = 0
 	}
 
-	player.animationYOffset = 320;
+	player.animationYOffset = 320
 	player.spriteSheet = love.graphics.newImage("sprites/player/character-spritesheet.png")
 	for i,k in pairs(love) do
 		print(i)
@@ -67,8 +67,6 @@ return function()
 		if not player.playerIsMoving and player.animationYOffset < player.idleOffset then
 			player.animationYOffset = player.animationYOffset + player.idleOffset
 		end
-
-		love.camera.setCameraLocation(player.position.x + 64, player.position.y + 32)
 
 		love.animation.update(player.animation, deltaTime)
 		love.animation.setOffset(player.animation, 0, player.animationYOffset)

@@ -5,6 +5,7 @@ return function()
 
 	function level:update(deltaTime)
 		level.player:update(deltaTime)
+		love.camera.setCameraLocation(level.player.position.x + 32, level.player.position.y + 32)
 	end
 
 	function level:draw()

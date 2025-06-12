@@ -5,5 +5,8 @@ return function()
 	end
 	love.camera.setCameraRenderingActive(false)
 	
+	if g_ui then
+		g_ui:draw()
+	end
 	-- draw UI and stuff
 end
